@@ -38,7 +38,7 @@ class SmsReader(private val context: Context) {
         }
 
         if (!sender.isNullOrEmpty()) {
-            selectionParts.add("address LIKE ?")
+            selectionParts.add("address LIKE ? COLLATE NOCASE")
             args.add("%$sender%")
         }
 
