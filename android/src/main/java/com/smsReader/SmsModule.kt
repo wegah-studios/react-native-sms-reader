@@ -1,4 +1,4 @@
-package com.smsreader
+package com.smsReader
 
 import com.facebook.react.bridge.*
 
