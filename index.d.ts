@@ -8,7 +8,7 @@ declare module "react-native-sms-reader" {
 
   export function requestSmsPermission(): Promise<boolean>;
 
-  export function fetchSmsMessages(
+  export function fetchMessages(
     startDate?: Date,
     endDate?: Date,
     sender?: string,
@@ -18,7 +18,7 @@ declare module "react-native-sms-reader" {
   ): Promise<SmsMessage[]>;
 
   const SmsReader: {
-    fetchSmsMessages: typeof fetchSmsMessages;
+    fetchMessages: typeof fetchMessages;
     requestSmsPermission: typeof requestSmsPermission;
   };
 
