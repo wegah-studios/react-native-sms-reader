@@ -28,15 +28,6 @@ export async function fetchMessages({
 }) {
   ensureAndroid();
 
-  console.log(
-    "fuckity fuck: here I am: ",
-    startDate,
-    endDate,
-    sender,
-    fetchCondition,
-    lastId,
-    limit,
-  );
   return SmsReader.fetchMessages(
     startDate ? startDate.getTime() : null,
     endDate ? endDate.getTime() : null,
