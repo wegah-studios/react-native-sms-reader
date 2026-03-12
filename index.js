@@ -12,29 +12,38 @@ export async function requestSmsPermission() {
   if (Platform.OS !== "android") return true;
 
   const result = await PermissionsAndroid.request(
-    PermissionsAndroid.PERMISSIONS.READ_SMS
+    PermissionsAndroid.PERMISSIONS.READ_SMS,
   );
 
   return result === PermissionsAndroid.RESULTS.GRANTED;
 }
 
 export async function fetchMessages({
-  startDate = null,
-  endDate = null,
-  sender = null,
-  fetchCondition = null,
-  lastId = null,
-  limit = null,
+  startDate,
+  endDate,
+  sender,
+  fetchCondition,
+  lastId,
+  limit,
 }) {
   ensureAndroid();
 
-  return SmsReader.fetchMessages(
-    startDate ? startDate.getTime() : null,
-    endDate ? endDate.getTime() : null,
+  console.log(
+    "fuckity fuck: here I am: ",
+    startDate,
+    endDate,
     sender,
     fetchCondition,
     lastId,
-    limit
+    limit,
+  );
+  return SmsReader.fetchMessages(
+    startDate ? startDate.getTime() : null,
+    endDate ? endDate.getTime() : null,
+    sender || null,
+    fetchCondition || null,
+    lastId || null,
+    limit || null,
   );
 }
 
