@@ -6,16 +6,18 @@ declare module "react-native-sms-reader" {
     date: number;
   };
 
+  export type SmsSearchParams = {
+    startDate?: Date;
+    endDate?: Date;
+    sender?: string;
+    fetchCondition?: string;
+    lastId?: number;
+    limit?: number;
+  };
+
   export function requestSmsPermission(): Promise<boolean>;
 
-  export function fetchMessages(
-    startDate?: Date,
-    endDate?: Date,
-    sender?: string,
-    fetchCondition?: string,
-    lastId?: number,
-    limit?: number,
-  ): Promise<SmsMessage[]>;
+  export function fetchMessages(params: SmsSearchParams): Promise<SmsMessage[]>;
 
   const SmsReader: {
     fetchMessages: typeof fetchMessages;
